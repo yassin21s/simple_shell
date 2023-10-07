@@ -18,9 +18,11 @@ char **split_str(char *array, char *detr)
 		while (token)
 		{
 			arg_spt[i] = token;
-			token = strtok(NULL, "detr");
+			token = strtok(NULL, detr);
 			i++;
 		}
+	arg_spt[i] = NULL;
+	return (arg_spt);
 
 
 }

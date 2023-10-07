@@ -30,7 +30,8 @@ int main(int ac, char **av, char **env)
 			exit(1);
 			free(array);
 		}
-		printf("%s", array);
+		arg_spt = split_str(array, " \t\n");
+		printf("%s", arg_spt);
 		free(array);
 	}
 	return (0);

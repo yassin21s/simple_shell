@@ -8,7 +8,7 @@
 char *_getenv(const char *varenv)
 {
 	int i = 0;
-	char *vartok, *valenv;
+	char *vartok;
 
 	while (environ[i])
 	{

@@ -10,10 +10,9 @@
 int main(int ac, char **av, char **env)
 {
 	char *array = NULL;
-	ssize_t size_ary = 0;
-	int n_char = 0;
-	char **arg_spt;
-	char *detr = " \t\n";
+	size_t size_ary = 0;
+	int i, n_char = 0;
+	char **arg_spt = NULL;
 	(void)ac;
 	(void)av;
 	(void)env;
@@ -30,9 +29,17 @@ int main(int ac, char **av, char **env)
 			exit(1);
 			free(array);
 		}
-		arg_spt = split_str(array, " \t\n");
-		printf("%s", arg_spt);
+
+		arg_spt = split_str(array);
+		for (i = 0 ; arg_spt[i] != NULL  ; i++)
+		{
+			printf("%s", arg_spt[i]);
+			free(arg_spt[i]);
+		}
+		
+
 		free(array);
+		free(arg_spt);
 	}
 	return (0);
 }

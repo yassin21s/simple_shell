@@ -17,6 +17,5 @@ char *_getenv(const char *varenv)
 			return (strtok(NULL, "\n"));
 		i++;
 	}
-	free(valenv);
 	return (NULL);
 }

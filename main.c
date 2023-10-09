@@ -9,13 +9,12 @@
  */
 int main(int ac, char **av, char **env)
 {
-	char *array = NULL;
+	char *pathcmd, *array = NULL;
 	size_t size_ary = 0;
-	int i, n_char = 0;
+	int status, n_char = 0;
 	char **arg_spt = NULL;
-	(void)ac;
-	(void)av;
-	(void)env;
+	pid_t pid;
+	(void)ac, (void)av;
 
 	while (1)
 	{
@@ -31,15 +30,21 @@ int main(int ac, char **av, char **env)
 		}
 
 		arg_spt = split_str(array);
-		for (i = 0 ; arg_spt[i] != NULL  ; i++)
-		{
-			printf("%s", arg_spt[i]);
-			free(arg_spt[i]);
-		}
-		
 
-		free(array);
-		free(arg_spt);
-	}
+				pid = fork();
+				if (pid == 0)
+				{
+				pathcmd = getpathcmd(arg_spt[0]);
+				if (pathcmd)
+					execve(pathcmd, arg_spt, env);
+				else
+				printf("not found\n");
+				free(pathcmd);
+				}
+				else
+				wait(&status);
+				free(array);
+				free(arg_spt);
+				}
 	return (0);
 }

@@ -30,6 +30,6 @@ char **split_str(char *array)
 			token = strtok(NULL, " \t\n");
 			i++;
 		}
-	arg_spt[i] = NULL;
-	return (arg_spt);
+		arg_spt[i] = NULL;
+		return (arg_spt);
 }

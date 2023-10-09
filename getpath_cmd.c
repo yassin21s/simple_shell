@@ -37,25 +37,3 @@ char *getpathcmd(char *cmd)
 	free(path);
 	return (NULL);
 }
-/**
- * main - Entry point.
- * @ac: argumants int
- * @av: argumants vector
- *
- * Return: 0
- */
-int main(int ac, char **av)
-{
-	(void)ac;
-	char *argb;
-
-	argb = getpathcmd(av[1]);
-	if (argb)
-		printf("%s\n", argb);
-	else
-		printf("foooooooooooo");
-	free(argb);
-	return (0);
-
-}
-

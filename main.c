@@ -30,21 +30,21 @@ int main(int ac, char **av, char **env)
 		}
 
 		arg_spt = split_str(array);
-
 				pid = fork();
 				if (pid == 0)
 				{
 				pathcmd = getpathcmd(arg_spt[0]);
 				if (pathcmd)
+				{
 					execve(pathcmd, arg_spt, env);
-				else
-				printf("not found\n");
-				free(pathcmd);
 				}
 				else
+				printf("not found\n");
+				free_split_str(arg_spt);
+				}
+				else
+					free_split_str(arg_spt);
 				wait(&status);
-				free(array);
-				free(arg_spt);
 				}
 	return (0);
 }

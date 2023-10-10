@@ -12,6 +12,7 @@ extern char **environ;
 char * getpathcmd(char *cmd);
 char *_getenv(const char *varenv);
 char **split_str(char *array);
+void free_split_str(char **arg_spt);
 int _putchar(char c);
 
 #endif /*SHIL_H */

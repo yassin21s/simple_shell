@@ -11,7 +11,7 @@ char **split_str(char *array)
 	char *token;
 	int i = 0;
 
-	arg_spt = malloc(1024 * sizeof(char));
+	arg_spt = malloc(1024 * sizeof(char *));
 	if (arg_spt == NULL)
 	{
 		perror("Erreur array arg_spt");
@@ -30,6 +30,8 @@ char **split_str(char *array)
 			token = strtok(NULL, " \t\n");
 			i++;
 		}
+		free(token),
+		free(array);
 		arg_spt[i] = NULL;
 		return (arg_spt);
 }

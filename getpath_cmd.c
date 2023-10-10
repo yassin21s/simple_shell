@@ -30,8 +30,10 @@ char *getpathcmd(char *cmd)
 		strcat(pathcmd, "/");
 		strcat(pathcmd, cmd);
 		if (stat(pathcmd, &st) == 0)
+		{
+			free(path);
 			return (pathcmd);
-		free(pathcmd);
+		}
 		sl_path = strtok(NULL, ":");
 	}
 	free(path);

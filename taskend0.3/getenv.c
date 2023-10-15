@@ -5,19 +5,23 @@
  *
  * Return: Always 0 (Success)
  */
-char *_getenv(const char *varenv)
+char *_getenv(char *varenv)
 {
 	int i = 0;
 	char *vartok, *token, *toke, *env;
 
 	while (environ[i])
 	{
-		token = strdup(environ[i]);
+		token = _strdup(environ[i]);
 		vartok = strtok(token, "=");
-		if (strcmp(vartok, varenv) == 0)
+		if (_strcmp(vartok, varenv) == 0)
+		{
 			toke = strtok(NULL, "\n");
-		env = strdup(toke);
+		env = _strdup(toke);
+		free(token);
 		return (env);
+		}
+		free(token), token = NULL;
 		i++;
 	}
 	return (NULL);

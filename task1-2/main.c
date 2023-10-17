@@ -8,7 +8,7 @@
  */
 int main(int ac, char **argv)
 {
-	int status, idx = 0;
+	int status;
 	char **arg_spt = NULL;
 	char *array = NULL;
 	(void)ac;
@@ -22,14 +22,10 @@ int main(int ac, char **argv)
 				write(STDOUT_FILENO, "\n", 1);
 			return (status);
 		}
-		idx++;
 		arg_spt = split_str(array);
 		if (!arg_spt)
 			continue;
-		if (bool_ean(arg_spt[0]))
-			bool_funct(arg_spt, argv, &status, idx);
-		else
-		status = ececut_cmd(arg_spt, argv, idx);
+		status = ececut_cmd(arg_spt, argv);
 	}
 	return (0);
 }

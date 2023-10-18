@@ -11,7 +11,7 @@ char **split_str(char *array)
 	char *token, *tmp;
 	int i = 0, j = 0;
 
-	if (array == NULL)
+	if (!array)
 		return (NULL);
 	tmp = _strdup(array);
 	token = strtok(tmp, DELIMITERS);

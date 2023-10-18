@@ -4,7 +4,7 @@
  * @arg_spt: argumants string.
  * @argv: argumants vector.
  *
- * Return: commad execute.
+ * Return: return status.
  */
 int ececut_cmd(char **arg_spt, char **argv)
 {

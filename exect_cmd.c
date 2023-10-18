@@ -9,7 +9,7 @@
  */
 int ececut_cmd(char **arg_spt, char **argv, int idx)
 {
-		pid_t pid;
+		pid_t child;
 		int status;
 		char *pathcmd;
 
@@ -18,10 +18,10 @@ int ececut_cmd(char **arg_spt, char **argv, int idx)
 		{
 			print_error(argv[0], arg_spt[0], idx);
 			free_array(arg_spt);
-			return (0);
+			return (127);
 		}
-		pid = fork();
-		if (pid == 0)
+		child = fork();
+		if (child == 0)
 		{
 			if (execve(pathcmd, arg_spt, environ) == -1)
 			{
@@ -32,7 +32,7 @@ int ececut_cmd(char **arg_spt, char **argv, int idx)
 		}
 		else
 		{
-			waitpid(pid, &status, 0);
+			waitpid(child, &status, 0);
 			free(pathcmd), pathcmd = NULL;
 			free_array(arg_spt);
 		}

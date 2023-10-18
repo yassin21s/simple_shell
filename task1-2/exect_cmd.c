@@ -8,23 +8,23 @@
  */
 int ececut_cmd(char **arg_spt, char **argv)
 {
-		pid_t pid;
+		pid_t child;
 		int status;
 
-		pid = fork();
+		child = fork();
 
-		if (pid == 0)
+		if (child == 0)
 		{
 			if (execve(arg_spt[0], arg_spt, environ) == -1)
 			{
 				perror(argv[0]);
 				free_array(arg_spt);
-				exit(0);
+				exit(127);
 			}
 		}
 		else
 		{
-			waitpid(pid, &status, 0);
+			waitpid(child, &status, 0);
 			free_array(arg_spt);
 		}
 		return (WEXITSTATUS(status));

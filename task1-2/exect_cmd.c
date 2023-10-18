@@ -2,7 +2,7 @@
 /**
  * ececut_cmd - execute commad shell.
  * @arg_spt: argumants string.
- * @argv: argumants vecror.
+ * @argv: argumants vector.
  *
  * Return: commad execute.
  */

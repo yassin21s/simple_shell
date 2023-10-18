@@ -39,7 +39,7 @@ void bool_funct(char **cmd, char **argv, int *status, int idx)
  * exit_sh - use command exits
  * @cmd: argumants string
  * @argv:argumants vecteur
- * @status: stat
+ * @status: the exit status
  * @idx: the counter int.
  *
  * Return: empty.
@@ -70,6 +70,10 @@ void exit_sh(char **cmd, char **argv, int *status, int idx)
 			(*status) = 2;
 			return;
 		}
+		if (s_shell(cmd[1]) > 98)
+				(*status) = 232;
+				else if (s_shell(cmd[1]) > 0)
+					(*status) = s_shell(cmd[1]);
 	}
 	free_array(cmd);
 	exit(ex_val);

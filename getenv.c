@@ -10,7 +10,7 @@
  */
 int cd_command(int tokens, char **command)
 {
-	char *prev_dir = my_getenv("OLDPWD"), *cwd;
+	char *prev_dir = my_getenv("OLDPWD"), *med;
 
 	if (prev_dir == NULL && tokens == 2 && _strcmp(command[1], "-") == 0)
 	{
@@ -25,25 +25,25 @@ int cd_command(int tokens, char **command)
 	}
 	else if (tokens == 2 && _strcmp(command[1], "-") == 0)
 	{
-		prev_dir = my_getenv("OLDPWD"), cwd = getcwd(NULL, 0);
+		prev_dir = my_getenv("OLDPWD"), med = getcwd(NULL, 0);
 		_print_str(prev_dir), _print_str("\n");
 		if (chdir(prev_dir) != 0)
 		{
-			free(cwd);
+			free(med);
 			return (1);
 		}
-		set_variable_env("OLDPWD", cwd), free(cwd);
+		set_variable_env("OLDPWD", med), free(med);
 		return (1);
 	}
 	else if (tokens == 2)
 	{
-		cwd = getcwd(NULL, 0), set_variable_env("OLDPWD", cwd);
+		med = getcwd(NULL, 0), set_variable_env("OLDPWD", med);
 		if (chdir(command[1]) != 0)
 		{
-			free(cwd);
+			free(med);
 			return (0);
 		}
-		free(cwd);
+		free(med);
 	}
 	else
 		return (0);

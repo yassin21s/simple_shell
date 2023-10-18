@@ -80,7 +80,7 @@ void exit_(char **cmd, int l)
 int semicolon_handler(char **cmd, char **ar, char **env, int *tok, int *l,
 	int *ex, char *lin)
 {
-	int result = 0;
+	int res = 0;
 	char **cmdar = NULL;
 	int i;
 
@@ -94,11 +94,11 @@ int semicolon_handler(char **cmd, char **ar, char **env, int *tok, int *l,
 		cmdar[0] = _strdup(cmd[i]);
 
 		cmdar[1] = NULL;
-		result = executecmd(cmdar, ar, env, tok, l, ex);
+		res = executecmd(cmdar, ar, env, tok, l, ex);
 		*tok = *tok - 1;
 	}
 	free_2d_array(cmd);
-	return (result);
+	return (res);
 }
 /**
  * chech_semicolon - Check for the presence of semicolons

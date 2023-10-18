@@ -14,9 +14,9 @@ void free_array(char **array)
 
 	for (i = 0 ; array[i] != NULL ; i++)
 	{
-		free(array[i]);
+		free(array[i]), array[i] = NULL;
 	}
-	free(array);
+	free(array), array = NULL;
 }
 /**
  * _strdup - The duplicate the string.

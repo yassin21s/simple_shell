@@ -16,7 +16,7 @@ char *read_cmd(void)
 	n_char = getline(&array, &size_ary, stdin);
 	if (n_char == -1)
 	{
-		free(array);
+		free(array), array = NULL;
 		return (NULL);
 	}
 	return (array);

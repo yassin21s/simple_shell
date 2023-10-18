@@ -3,7 +3,7 @@
  * split_str - splite string
  * @array: Arguments string
  *
- * Return: Always 0 (Success)
+ * Return: string
  */
 char **split_str(char *array)
 {

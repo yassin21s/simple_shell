@@ -8,7 +8,7 @@
 char **split_str(char *array)
 {
 	char **arg_spt = NULL;
-	char *token, *tmp;
+	char *token, *tmp = NULL;
 	int i = 0, j = 0;
 
 	if (array == NULL)

@@ -24,7 +24,7 @@ void free_array(char **array)
  *
  * Return: return strings.
  */
-char *_strdup(const char *str)
+char *_strdup(char *str)
 {
 	char *ptr;
 	int i, ctp = 0;

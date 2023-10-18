@@ -2,7 +2,7 @@
 /**
  * read_cmd - input commad shell
  *
- * Return: empty.
+ * Return: stinger.
  */
 
 char *read_cmd(void)

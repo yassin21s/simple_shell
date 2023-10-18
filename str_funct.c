@@ -10,15 +10,15 @@
 
 int isWhitespaceString(char *str)
 {
-	int i;
+	int j;
 
 	if (str == NULL)
 		return (0);
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (j = 0; str[j] != '\0'; j++)
 	{
 
-		if (!_isspace((unsigned char)str[i]))
+		if (!_isspace((unsigned char)str[j]))
 			return (5);
 	}
 

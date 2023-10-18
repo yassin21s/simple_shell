@@ -48,7 +48,7 @@ void exit_sh(char **cmd, char **argv, int *status, int idx)
 {
 	char *cmpt;
 	int ex_val = (*status);
-	char tab_msg[] = "exit: Illegal number: ";
+	char tab_msg[] = ": exit: Illegal number: ";
 
 	if (cmd[1])
 	{
@@ -62,7 +62,6 @@ void exit_sh(char **cmd, char **argv, int *status, int idx)
 			write(STDERR_FILENO, argv[0], _strlen(argv[0]));
 			write(STDERR_FILENO, ": ", 2);
 			write(STDERR_FILENO, cmpt, _strlen(cmpt));
-			write(STDERR_FILENO, ": ", 2);
 			write(STDERR_FILENO, tab_msg, _strlen(tab_msg));
 			write(STDERR_FILENO, cmd[1], _strlen(cmd[1]));
 			write(STDERR_FILENO, "\n", 1);

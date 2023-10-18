@@ -46,7 +46,7 @@ void bool_funct(char **cmd, char **argv, int *status, int idx)
  */
 void exit_sh(char **cmd, char **argv, int *status, int idx)
 {
-	char *cmp;
+	char *cmpt;
 	int ex_val = (*status);
 	char tab_msg[] = "exit: Illegal number:";
 
@@ -58,15 +58,15 @@ void exit_sh(char **cmd, char **argv, int *status, int idx)
 		}
 		else
 		{
-			cmp = n_shell(idx);
+			cmpt = n_shell(idx);
 			write(STDERR_FILENO, argv[0], _strlen(argv[0]));
 			write(STDERR_FILENO, ": ", 2);
-			write(STDERR_FILENO, cmp, _strlen(cmp));
+			write(STDERR_FILENO, cmpt, _strlen(cmpt));
 			write(STDERR_FILENO, ": ", 2);
 			write(STDERR_FILENO, tab_msg, _strlen(tab_msg));
 			write(STDERR_FILENO, cmd[1], _strlen(cmd[1]));
 			write(STDERR_FILENO, "\n", 1);
-			free(cmp);
+			free(cmpt);
 			free_array(cmd);
 			return;
 		}

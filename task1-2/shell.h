@@ -8,8 +8,9 @@
 #include <string.h>
 #include <stddef.h>
 #include <sys/stat.h>
-
+#define DELIMITERS " \t\n\r\a;&&"
 extern char **environ;
+
 char *read_cmd(void);
 char **split_str(char *array);
 void free_array(char **arg_spt);

@@ -17,6 +17,7 @@ char *read_cmd(void)
 	if (n_char == -1)
 	{
 		free(array);
+		array = NULL;
 		return (NULL);
 	}
 	return (array);

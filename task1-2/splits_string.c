@@ -14,7 +14,7 @@ char **split_str(char *array)
 	if (array == NULL)
 		return (NULL);
 	tmp = _strdup(array);
-	token = strtok(tmp, " \t\n");
+	token = strtok(tmp, DELIMITERS);
 	if (!token)
 	{
 		free(array), array = NULL;
@@ -24,7 +24,7 @@ char **split_str(char *array)
 	while (token)
 	{
 		j++;
-		token = strtok(NULL, " \t\n");
+		token = strtok(NULL, DELIMITERS);
 	}
 	free(tmp), tmp = NULL;
 	arg_spt = malloc(sizeof(char *) * (j + 1));
@@ -34,11 +34,11 @@ char **split_str(char *array)
 		free(tmp), tmp = NULL;
 		return (NULL);
 	}
-	token = strtok(array, " \t\n");
+	token = strtok(array, DELIMITERS);
 	while (token)
 	{
 	arg_spt[i] = _strdup(token);
-	token = strtok(NULL, " \t\n");
+	token = strtok(NULL, DELIMITERS);
 	i++;
 	}
 	arg_spt[i] = NULL;

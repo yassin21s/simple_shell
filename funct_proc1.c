@@ -1,64 +1,74 @@
 #include "shell.h"
-
 /**
- * _strdup - it Duplicates a string.
- * @str: original's pointer string
+ * _strdup - The duplicate the string.
+ * @str: input string.
  *
- * Return: A pointer to the duplicated string.
+ * Return: return strings.
  */
-
 char *_strdup(char *str)
 {
-	char *A;
-	unsigned int i;
+	char *ptr;
+	int i, ctp = 0;
 
 	if (str == NULL)
 		return (NULL);
-	A = (char *)malloc(sizeof(char) * _strlen(str) + 1);
-
-	if (A == NULL)
+	while (str[ctp])
+		ctp++;
+	ptr = malloc(sizeof(char) * (ctp + 1));
+	if (ptr == NULL)
 		return (NULL);
-	for (i = 0; str[i] != '\0'; i++)
-		A[i] = str[i];
-
-	A[i] = '\0';
-	return (A);
+	for (i = 0 ; i <= ctp ; i++)
+		ptr[i] = str[i];
+	return (ptr);
 }
-
 /**
- * _strcmp - Compares two strings.
- * @s1: Pointer to the first string.
- * @s2: Pointer to the second string.
- * Return:Returns an integer representing the comparison result.
+ * _strcmp - Compare two strings.
+ * @str1: input string1.
+ * @str2: input string2.
+ *
+ * Return: return cmp  .
  */
-
-int _strcmp(char *s1, char *s2)
+int _strcmp(char *str1, char *str2)
 {
-	int i = 0, rest = 1;
+	int cmp;
 
-	for (i = 0; s2[i] != '\0'; i++)
+	cmp = (int)*str1 - (int)*str2;
+	while (*str1)
 	{
-		rest = (s1[i] + '0') - (s2[i] + '0');
-
-		if (rest != 0)
+		if (*str1 != *str2)
 			break;
+		str1++;
+		str2++;
+		cmp = (int)*str1 - (int)*str2;
 	}
-	return (rest);
+	return (cmp);
 }
-
-
 /**
- * _strcpy - copies the string pointed to by src into dest
- * @dest: destination
- * @src: source
- * Return: char with copy of string
+ * _strlen - the length of a string.
+ * @str: the string.
+ *
+ * Return: return int  .
  */
+int _strlen(char *str)
+{
+	int len = 0;
 
+	while (str[len])
+		len++;
+	return (len);
+}
+/**
+ * _strcpy - Copy the string.
+ * @dest: string1.
+ * @src: string2.
+ *
+ * Return: return strings  .
+ */
 char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
 
-	while (src[i] != '\0')
+	while (src[i])
 	{
 		dest[i] = src[i];
 		i++;
@@ -66,25 +76,6 @@ char *_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
-
-/**
- * _strlen - it calculate the length of a null-terminated string.
- * @s: pointer to the null-terminated string to calculate the length of.
- *
- * Return: The length of the string.
- */
-
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
 /**
  * _strncmp - it compare the first 'n' characters of two strings.
  * @str1: It is a pointer to the first string to compare.

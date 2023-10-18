@@ -19,7 +19,8 @@ int ececut_cmd(char **arg_spt, char **argv)
 			{
 				perror(argv[0]);
 				free_array(arg_spt);
-				exit(127);
+				exit(0);
+	
 			}
 		}
 		else

@@ -8,7 +8,7 @@
  */
 int main(int ac, char **argv)
 {
-	int status;
+	int status = 0;
 	char **arg_spt = NULL;
 	char *array = NULL;
 	(void)ac;

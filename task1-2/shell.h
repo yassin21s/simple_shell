@@ -8,7 +8,7 @@
 #include <string.h>
 #include <stddef.h>
 #include <sys/stat.h>
-#define DELIMITERS "\n\r\a;&&"
+#define DELIMITERS  " \t\n"
 extern char **environ;
 
 char *read_cmd(void);
